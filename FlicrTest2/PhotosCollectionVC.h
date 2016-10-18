@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PhotosCollectionVC.h
 //  FlicrTest2
 //
 //  Created by Ivashin Dmitry on 10/18/16.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface PhotosCollectionVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
-
