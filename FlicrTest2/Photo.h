@@ -10,6 +10,13 @@
 
 @interface Photo : NSObject
 
+@property (nonatomic) NSString *ID;
+@property (nonatomic) NSString *owner;
+@property (nonatomic) NSString *secret;
+@property (nonatomic) NSString *server;
+@property (nonatomic) NSNumber *farm;
+
+
 @property (nonatomic) NSString *title, *authorName, *comment;
 @property (nonatomic) UIImage *image;
 

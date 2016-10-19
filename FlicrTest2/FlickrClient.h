@@ -12,7 +12,5 @@
 @interface FlickrClient : NSObject
 
 - (Photo *)getPhotos:(NSString*)url;
-- (UIImage*)downloadImage:(NSString*)url;
-
 
 @end

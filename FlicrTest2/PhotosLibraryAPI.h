@@ -13,7 +13,6 @@
 
 +(PhotosLibraryAPI *) sharedInstance;
 
--(UIImage *) downloadImageFromURL:(NSString *)stringURL;
--(id) getPhotos:(NSString*)url;
+-(id) getPhotos;
 
 @end

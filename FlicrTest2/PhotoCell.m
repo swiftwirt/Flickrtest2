@@ -16,4 +16,11 @@
     self.layer.cornerRadius = 6;
 }
 
+-(void)setPhoto:(Photo *)photo {
+    self.titleLbl.text = photo.title;
+    self.descriptionLbl.text = photo.comment;
+    self.authorNameLbl.text = photo.authorName;
+    self.photoImage.image = photo.image;
+}
+
 @end

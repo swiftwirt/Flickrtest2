@@ -12,7 +12,6 @@
 
 @interface PhotosLibraryAPI() {
     FlickrClient *flickrClient;
-    BOOL isOnline;
 }
 
 @end
@@ -35,12 +34,8 @@
     return self;
 }
 
--(id) getPhotos:(NSString*)url {
+-(id) getPhotos {
     return nil;
-}
-
--(UIImage *) downloadImageFromURL:(NSString *)stringURL {
-    return [flickrClient downloadImage:stringURL];
 }
 
 @end
