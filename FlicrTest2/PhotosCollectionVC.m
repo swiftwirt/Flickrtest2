@@ -11,7 +11,7 @@
 #import "PhotosLibraryAPI.h"
 
 @interface PhotosCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource> {
-    NSArray *testArray;
+    NSMutableArray *testArray;
 }
 
 @end
@@ -31,21 +31,16 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView reloadData];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.collectionView reloadData];
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
     return testArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-
-    Photo *test = testArray[indexPath.row];
-    cell.photo = test;
+    
+    Photo *photo = testArray[indexPath.row];
+    cell.photo = photo;
+    NSLog(@"********%@", photo.title);
     return cell;
 }
 

@@ -14,6 +14,7 @@
 @property (nonatomic) NSString *owner;
 @property (nonatomic) NSString *secret;
 @property (nonatomic) NSString *server;
+@property (nonatomic) NSString *detailURL;
 @property (nonatomic) NSNumber *farm;
 
 

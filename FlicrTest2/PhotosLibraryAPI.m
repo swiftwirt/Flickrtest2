@@ -30,7 +30,7 @@
 -(id) init {
     if (self = [super init]) {
         flickrClient = [FlickrClient new];
-            }
+        }
     return self;
 }
 

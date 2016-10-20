@@ -20,6 +20,20 @@
     self.titleLbl.text = photo.title;
     self.descriptionLbl.text = photo.comment;
     self.authorNameLbl.text = photo.authorName;
+    [self downloadImage:photo.imageLink];
+
 }
+
+-(void) downloadImage:(NSString *)URL {
+    NSURL *url = [NSURL URLWithString: URL];
+    NSURLSessionDownloadTask *downloadPhotoTask = [[NSURLSession sharedSession]
+    downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.photoImage.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:location]];
+        });    
+    }];    
+    [downloadPhotoTask resume];
+}
+
 
 @end

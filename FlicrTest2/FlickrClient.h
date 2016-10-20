@@ -12,6 +12,7 @@
 @interface FlickrClient : NSObject
 
 @property NSMutableArray *results;
+@property NSMutableArray *details;
 -(void)performGET:(void (^)(BOOL success))completionBlock;
 
 @end

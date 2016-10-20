@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Photo.h"
 
-@interface PhotoCell : UICollectionViewCell
+@interface PhotoCell : UICollectionViewCell 
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLbl;
@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImage;
 
 @property (strong, nonatomic) Photo *photo;
+
+-(void) downloadImage:(NSString *)URL;
 
 @end
