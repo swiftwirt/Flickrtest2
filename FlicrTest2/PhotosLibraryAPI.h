@@ -13,6 +13,8 @@
 
 +(PhotosLibraryAPI *) sharedInstance;
 
--(id) getPhotos;
+
+@property NSMutableArray *photos;
+- (void)getPhotos:(void (^)(BOOL success))completionBlock ;
 
 @end

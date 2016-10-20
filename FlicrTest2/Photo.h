@@ -18,8 +18,8 @@
 
 
 @property (nonatomic) NSString *title, *authorName, *comment;
-@property (nonatomic) UIImage *image;
+@property (nonatomic) NSString *imageLink;
 
--(id) init:(NSString *)title authorName:(NSString *)authorName comment:(NSString *)comment image:(UIImage *)image;
+-(id) init:(NSString *)title authorName:(NSString *)authorName comment:(NSString *)comment image:(NSString *)imageLink;
 
 @end

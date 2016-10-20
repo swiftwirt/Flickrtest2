@@ -110,7 +110,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ljx-4N-aP2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Ks-7P-NbW" customClass="NavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Ks-7P-NbW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="keW-zZ-AYR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -11,6 +11,7 @@
 
 @interface FlickrClient : NSObject
 
-- (Photo *)getPhotos:(NSString*)url;
+@property NSMutableArray *results;
+-(void)performGET:(void (^)(BOOL success))completionBlock;
 
 @end

@@ -8,9 +8,10 @@
 
 #import "PhotosCollectionVC.h"
 #import "PhotoCell.h"
+#import "PhotosLibraryAPI.h"
 
 @interface PhotosCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource> {
-    NSMutableArray *testArray;
+    NSArray *testArray;
 }
 
 @end
@@ -21,10 +22,18 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Photo *testObject = [[Photo alloc] init:@"1" authorName:@"2" comment:@"3" image:[UIImage imageNamed:@"40 10.01.04 PM.png"]];
-    Photo *testObject2 = [[Photo alloc] init:@"5" authorName:@"6" comment:@"7" image:[UIImage imageNamed:@"40 10.01.04 PM.png"]];
-    testArray = [NSMutableArray arrayWithObjects:testObject, testObject2, nil];
-    
+    PhotosLibraryAPI *library = [PhotosLibraryAPI sharedInstance];
+    [library getPhotos: ^(BOOL success) {
+        testArray = library.photos;
+        [self.collectionView reloadData];
+        NSLog(@"*****%lu", (unsigned long)[testArray count]);
+    }];
+    [self.collectionView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.collectionView reloadData];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

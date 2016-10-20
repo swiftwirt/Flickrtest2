@@ -10,12 +10,12 @@
 
 @implementation Photo
 
--(id) init:(NSString *)title authorName:(NSString *)authorName comment:(NSString *)comment image:(UIImage *)image {
+-(id) init:(NSString *)title authorName:(NSString *)authorName comment:(NSString *)comment image:(NSString *)imageLink {
     if ((self = [super init])) {
         self.title = title;
         self.authorName = authorName;
         self.comment = comment;
-        self.image = image;
+        self.imageLink = imageLink;
     }
     return self;
 }

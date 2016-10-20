@@ -30,12 +30,18 @@
 -(id) init {
     if (self = [super init]) {
         flickrClient = [FlickrClient new];
-    }
+            }
     return self;
 }
 
--(id) getPhotos {
-    return nil;
+- (void)getPhotos:(void (^)(BOOL success))completionBlock {
+    [flickrClient performGET:^(BOOL success) {
+        if (success) {
+            self.photos = flickrClient.results;
+            NSLog(@"***items to display: %lu", (unsigned long)[self.photos count]);
+            completionBlock(success);
+        }
+    }];
 }
 
 @end
