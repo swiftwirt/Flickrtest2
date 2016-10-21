@@ -38,8 +38,8 @@
 
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, components, locations, 2);
     
-    CGFloat x = CGRectGetMaxX(self.bounds);
-    CGFloat y = CGRectGetMaxY(self.bounds);
+    CGFloat x = CGRectGetMidX(self.bounds);
+    CGFloat y = CGRectGetMidY(self.bounds);
     CGPoint point = CGPointMake(x, y);
     CGFloat radius = MAX(x, y);
     

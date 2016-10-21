@@ -21,7 +21,7 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     PhotosLibraryAPI *library = [PhotosLibraryAPI sharedInstance];
     [library getPhotos: ^(BOOL success) {
@@ -36,11 +36,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView reloadData];
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return testArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];    
     Photo *photo = testArray[indexPath.row];
     cell.photo = photo;
@@ -62,7 +62,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
--(void) showNetworkError {
+-(void)showNetworkError {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Whoops..." message:@"There was a reading error. Please check-up your internet connection and  try again." preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.collectionView reloadData];

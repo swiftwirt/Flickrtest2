@@ -40,14 +40,14 @@
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 
--(void) downloadImage:(NSString *)URL {
+-(void)downloadImage:(NSString *)URL {
     if (URL != nil) {
         NSURL *url = [NSURL URLWithString:URL];
         downloadTask = [self.largeImageView loadImageWithURL:url];
     }
 }
 
--(void) close {
+-(void)close {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

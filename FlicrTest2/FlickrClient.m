@@ -55,7 +55,7 @@
     [dataTask resume];
 }
 
--(NSDictionary *) parseJSON:(NSData *)data {
+-(NSDictionary *)parseJSON:(NSData *)data {
     if (data != nil) {
         NSError *myError = nil;
         NSDictionary *returnDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&myError];
@@ -72,7 +72,7 @@
     }
 }
 
--(NSMutableArray *) parseDictionary:(NSDictionary *)dictionary {
+-(NSMutableArray *)parseDictionary:(NSDictionary *)dictionary {
     NSMutableArray *resultsArray = [NSMutableArray array];
     NSDictionary *photosDict = [dictionary objectForKey:@"photos"];
     NSArray *photosArray = [photosDict objectForKey:@"photo"];
@@ -139,7 +139,7 @@
     }
 }
 
--(NSURL *) getUserPhotosURL {
+-(NSURL *)getUserPhotosURL {
         NSString *urlString = @"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a9eeb7837a1b91bf45f063d5f37f7f3a&user_id=148287295%40N07&format=json&nojsoncallback=1&auth_token=72157674106489562-447bc47387b27835&api_sig=5ce642fb0b7b0d573c71665e33234d56";
         NSURL *url = [NSURL URLWithString:urlString];
         return url;

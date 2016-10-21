@@ -27,7 +27,7 @@
     return _sharedInstance;
 }
 
--(id) init {
+-(id)init {
     if (self = [super init]) {
         flickrClient = [FlickrClient new];
         }

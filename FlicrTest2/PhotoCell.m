@@ -31,7 +31,7 @@
 
 }
 
--(void) downloadImage:(NSString *)URL {
+-(void)downloadImage:(NSString *)URL {
     if (URL != nil) {
         NSURL *url = [NSURL URLWithString:URL];
         downloadPhotoTask = [self.photoImage loadImageWithURL:url];
