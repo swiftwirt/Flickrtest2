@@ -22,6 +22,9 @@
 		D00934BC1DB683DE00400011 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D00934BB1DB683DE00400011 /* PhotoCell.m */; };
 		D092ECFB1DBA125200CBC84C /* UIImageView+LoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D092ECFA1DBA125200CBC84C /* UIImageView+LoadImage.m */; };
 		D092ECFE1DBA560100CBC84C /* LargeImagePopUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D092ECFD1DBA560100CBC84C /* LargeImagePopUpVC.m */; };
+		D092ED011DBA784900CBC84C /* DimmingPresentationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D092ED001DBA784900CBC84C /* DimmingPresentationVC.m */; };
+		D092ED041DBA795E00CBC84C /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = D092ED031DBA795E00CBC84C /* GradientView.m */; };
+		D092ED071DBA877B00CBC84C /* FadeOutAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D092ED061DBA877B00CBC84C /* FadeOutAnimationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,12 @@
 		D092ECFA1DBA125200CBC84C /* UIImageView+LoadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LoadImage.m"; sourceTree = "<group>"; };
 		D092ECFC1DBA560100CBC84C /* LargeImagePopUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeImagePopUpVC.h; sourceTree = "<group>"; };
 		D092ECFD1DBA560100CBC84C /* LargeImagePopUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargeImagePopUpVC.m; sourceTree = "<group>"; };
+		D092ECFF1DBA784900CBC84C /* DimmingPresentationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DimmingPresentationVC.h; sourceTree = "<group>"; };
+		D092ED001DBA784900CBC84C /* DimmingPresentationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DimmingPresentationVC.m; sourceTree = "<group>"; };
+		D092ED021DBA795E00CBC84C /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		D092ED031DBA795E00CBC84C /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		D092ED051DBA877B00CBC84C /* FadeOutAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeOutAnimationController.h; sourceTree = "<group>"; };
+		D092ED061DBA877B00CBC84C /* FadeOutAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeOutAnimationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +161,12 @@
 				D00934BB1DB683DE00400011 /* PhotoCell.m */,
 				D092ECF91DBA125200CBC84C /* UIImageView+LoadImage.h */,
 				D092ECFA1DBA125200CBC84C /* UIImageView+LoadImage.m */,
+				D092ED051DBA877B00CBC84C /* FadeOutAnimationController.h */,
+				D092ED061DBA877B00CBC84C /* FadeOutAnimationController.m */,
+				D092ECFF1DBA784900CBC84C /* DimmingPresentationVC.h */,
+				D092ED001DBA784900CBC84C /* DimmingPresentationVC.m */,
+				D092ED021DBA795E00CBC84C /* GradientView.h */,
+				D092ED031DBA795E00CBC84C /* GradientView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -249,15 +264,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D092ED041DBA795E00CBC84C /* GradientView.m in Sources */,
 				D00934A81DB65E9C00400011 /* FlickrClient.m in Sources */,
 				D00934B61DB67FE000400011 /* PhotosCollectionVC.m in Sources */,
 				D092ECFE1DBA560100CBC84C /* LargeImagePopUpVC.m in Sources */,
 				D009349D1DB6581800400011 /* Photo.m in Sources */,
+				D092ED011DBA784900CBC84C /* DimmingPresentationVC.m in Sources */,
 				D00934BC1DB683DE00400011 /* PhotoCell.m in Sources */,
 				D092ECFB1DBA125200CBC84C /* UIImageView+LoadImage.m in Sources */,
 				D00934811DB6512000400011 /* AppDelegate.m in Sources */,
 				D00934AB1DB65ECA00400011 /* PhotosLibraryAPI.m in Sources */,
 				D009347E1DB6512000400011 /* main.m in Sources */,
+				D092ED071DBA877B00CBC84C /* FadeOutAnimationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import "LargeImagePopUpVC.h"
 #import "UIImageView+LoadImage.h"
+#import "DimmingPresentationVC.h"
+#import "FadeOutAnimationController.h"
 
 @interface LargeImagePopUpVC () <UIViewControllerTransitioningDelegate> {
     NSURLSessionDownloadTask *downloadTask;    
@@ -29,7 +31,7 @@
     [super viewDidLoad];
     [self downloadImage: self.photo.bigImageLink];
     
-    self.view.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.2];
+    self.view.backgroundColor = [UIColor clearColor];
     self.containerView.layer.masksToBounds = YES;
     self.containerView.layer.cornerRadius = 15;
     
@@ -49,8 +51,12 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return [FadeOutAnimationController new];
+}
+
 -(UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source {
-    return [[UIPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+    return [[DimmingPresentationVC alloc] initWithPresentedViewController:presented presentingViewController:presenting];
 }
 
 @end

@@ -40,6 +40,9 @@
             self.photos = flickrClient.results;
             NSLog(@"***items to display: %lu", (unsigned long)[self.photos count]);
             completionBlock(success);
+        } else {
+            completionBlock(false);
+            NSLog(@"!!!***items to display: %lu", (unsigned long)[self.photos count]);
         }
     }];
 }

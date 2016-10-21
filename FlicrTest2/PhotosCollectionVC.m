@@ -25,9 +25,13 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     PhotosLibraryAPI *library = [PhotosLibraryAPI sharedInstance];
     [library getPhotos: ^(BOOL success) {
-        testArray = library.photos;
-        [self.collectionView reloadData];
-        NSLog(@"*****%lu", (unsigned long)[testArray count]);
+        if (success) {
+            testArray = library.photos;
+            [self.collectionView reloadData];
+            NSLog(@"*****%lu", (unsigned long)[testArray count]);
+        } else {
+            [self showNetworkError];
+        }
     }];
     [self.collectionView reloadData];
 }

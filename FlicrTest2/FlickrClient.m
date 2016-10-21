@@ -26,9 +26,7 @@
     NSURLSessionDataTask *dataTask;
     NSURL *url = [self getUserPhotosURL];
     dataTask = [session dataTaskWithURL:url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error){
-        BOOL success = false;
         if (error == nil) {
-            success = true;
             NSLog(@"***Success: %@", [response description]);
             if (data != nil) {
                 NSDictionary *resultsDict = [self parseJSON:data];
@@ -46,10 +44,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 application.networkActivityIndicatorVisible = false;
                 NSLog(@"***DATA LOADED items to display: %lu", (unsigned long)[self.results count]);
-                if (completionBlock != nil) completionBlock(success);
+                if (completionBlock != nil) completionBlock(true);
             });
         } else {
             NSLog(@"***dataTaskError occured: %@", [error description]);
+            application.networkActivityIndicatorVisible = false;
+            completionBlock(false);
         }
     }];
     [dataTask resume];
@@ -108,7 +108,7 @@
         NSURLSessionDataTask *dataTask;
         dataTask = [session dataTaskWithURL:url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error){
             if (error == nil) {
-                NSLog(@"***Success: %@", [response description]);
+                NSLog(@"***Success from details: %@", [response description]);
                 if (data != nil) {
                     NSDictionary *resultsDict = [self parseJSON:data];
                     [self parseDeatailsDictionary:resultsDict photo:photo];
