@@ -75,6 +75,7 @@
                                             <outlet property="descriptionLbl" destination="hm1-UX-KV4" id="HyR-l9-OEQ"/>
                                             <outlet property="photoImage" destination="DRp-kt-A0E" id="gck-ZN-4hA"/>
                                             <outlet property="titleLbl" destination="0AO-xu-UWi" id="Bo8-If-6pF"/>
+                                            <segue destination="wWW-Yw-dUg" kind="showDetail" identifier="ShowLarge" id="tUJ-44-VpK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -106,6 +107,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800.79999999999995" y="122.78860569715144"/>
+        </scene>
+        <!--Large Image Pop UpVC-->
+        <scene sceneID="P0f-ZR-Yov">
+            <objects>
+                <viewController id="wWW-Yw-dUg" customClass="LargeImagePopUpVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EgU-IU-G08"/>
+                        <viewControllerLayoutGuide type="bottom" id="eOY-Wn-RCe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NxQ-YX-37L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="taG-8c-IX8">
+                                <frame key="frameInset" minX="27" minY="25.94%" height="47.98%" maxX="28"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnR-FX-Kmr">
+                                        <frame key="frameInset"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="taG-8c-IX8" id="AVV-ju-AXD"/>
+                        <outlet property="largeImageView" destination="xnR-FX-Kmr" id="g66-5b-UUl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLt-dS-9f7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1484" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ljx-4N-aP2">

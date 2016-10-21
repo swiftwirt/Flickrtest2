@@ -10,8 +10,7 @@
 #import "Photo.h"
 
 @interface FlickrClient () {
-    NSURLSessionDataTask *dataTask;
-    NSURLSession *session;
+    
 }
 
 @end
@@ -23,7 +22,8 @@
     UIApplication *application = [UIApplication sharedApplication];
     application.networkActivityIndicatorVisible = true;
     
-    session = [NSURLSession sharedSession];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask;
     NSURL *url = [self getUserPhotosURL];
     dataTask = [session dataTaskWithURL:url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error){
         BOOL success = false;
@@ -33,6 +33,15 @@
             if (data != nil) {
                 NSDictionary *resultsDict = [self parseJSON:data];
                 self.results = [self parseDictionary:resultsDict];
+//                for (Photo *photoItem in preResults) {
+//                    NSLog(@"***zzz: %@", [photoItem title]);
+//                    [self performGETDetails:photoItem completion:^(BOOL success) {
+//                        if (success) {
+//                            [self.results addObject: photoItem];
+//                            NSLog(@"***zzzz: %li", [self.results count]);
+//                        }
+//                    }];
+//                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 application.networkActivityIndicatorVisible = false;
@@ -77,7 +86,7 @@
                     photo.farm = item[@"farm"];
                     photo.title = item[@"title"];
             
-            photo.detailURL = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=27a2d25d0d6a65c0300918b8b17890b5&photo_id=%@&format=json&nojsoncallback=1&auth_token=72157675487113895-5cd473a0137d90db&api_sig=0b1239622b6dea9337d3cd611c8c6318", photo.ID];
+            photo.detailURL = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=a9eeb7837a1b91bf45f063d5f37f7f3a&photo_id=%@&format=json&nojsoncallback=1&auth_token=72157674106489562-447bc47387b27835&api_sig=e0bf8768c6d3136f3faf0fb68cb0a474", photo.ID];
             NSLog(@"***detailURL %@", photo.detailURL);
             
             photo.imageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_m.jpg", [[photo farm] integerValue], photo.server, photo.ID, photo.secret];
@@ -85,11 +94,7 @@
             
             photo.bigImageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_z.jpg", [[photo farm] integerValue], photo.server, photo.ID, photo.secret];
             NSLog(@"***imageLink %@", photo.imageLink);
-//            [self performGETDetails:photo completion:^(BOOL success) {
-//                if (success) {
-//                    NSLog(@"***objectDetails %@ %@", [photo comment], [photo authorName]);
-//                }
-//            }];
+            
             [resultsArray addObject:photo];
             NSLog(@"***objectAdded %@ %@", [photo title], [photo owner]);
         }
@@ -99,7 +104,9 @@
 
 -(void)performGETDetails:(Photo *)photo completion:(void (^)(BOOL success))completion {
         NSURL *url = [NSURL URLWithString:photo.detailURL];
-        NSURLSessionDataTask *dataTak = [session dataTaskWithURL:url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error){
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *dataTask;
+        dataTask = [session dataTaskWithURL:url completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error){
             if (error == nil) {
                 NSLog(@"***Success: %@", [response description]);
                 if (data != nil) {
@@ -111,7 +118,7 @@
                 NSLog(@"***dataTaskError occured: %@", [error description]);
             }
         }];
-        [dataTak resume];
+        [dataTask resume];
 }
 
 -(void) parseDeatailsDictionary:(NSDictionary *)dictionary photo:(Photo *)photo {

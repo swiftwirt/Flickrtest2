@@ -9,6 +9,7 @@
 #import "PhotosCollectionVC.h"
 #import "PhotoCell.h"
 #import "PhotosLibraryAPI.h"
+#import "LargeImagePopUpVC.h"
 
 @interface PhotosCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource> {
     NSMutableArray *testArray;
@@ -41,6 +42,20 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.photo = photo;
     NSLog(@"********%@", photo.authorName);
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:true];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier  isEqual: @"ShowLarge"]) {
+        
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+        Photo *photo = testArray[indexPath.row];
+        LargeImagePopUpVC *largeImageController = (LargeImagePopUpVC *)segue.destinationViewController;
+        largeImageController.photo = photo;
+    }
 }
 
 -(void) showNetworkError {
