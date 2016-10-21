@@ -16,6 +16,8 @@
 @property (nonatomic) NSString *server;
 @property (nonatomic) NSString *detailURL;
 @property (nonatomic) NSNumber *farm;
+@property (nonatomic) NSString *bigImageLink;
+@property (nonatomic) UIImage  *cachedImage;
 
 
 @property (nonatomic) NSString *title, *authorName, *comment;

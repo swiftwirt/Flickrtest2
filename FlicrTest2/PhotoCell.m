@@ -47,6 +47,7 @@
     self.titleLbl.text = nil;
     self.descriptionLbl.text = nil;
     self.authorNameLbl.text = nil;
+    self.photoImage.image = nil;
 }
 
 @end

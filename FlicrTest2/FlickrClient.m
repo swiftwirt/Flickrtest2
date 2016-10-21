@@ -10,7 +10,6 @@
 #import "Photo.h"
 
 @interface FlickrClient () {
-    BOOL isLoading;
     NSURLSessionDataTask *dataTask;
     NSURLSession *session;
 }
@@ -20,7 +19,6 @@
 @implementation FlickrClient
 
 -(void)performGET:(void (^)(BOOL success))completionBlock {
-    isLoading = true;
     
     UIApplication *application = [UIApplication sharedApplication];
     application.networkActivityIndicatorVisible = true;
@@ -37,13 +35,11 @@
                 self.results = [self parseDictionary:resultsDict];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                isLoading = false;
                 application.networkActivityIndicatorVisible = false;
                 NSLog(@"***DATA LOADED items to display: %lu", (unsigned long)[self.results count]);
                 if (completionBlock != nil) completionBlock(success);
             });
         } else {
-            isLoading = false;
             NSLog(@"***dataTaskError occured: %@", [error description]);
         }
     }];
@@ -87,6 +83,8 @@
             photo.imageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_m.jpg", [[photo farm] integerValue], photo.server, photo.ID, photo.secret];
             NSLog(@"***imageLink %@", photo.imageLink);
             
+            photo.bigImageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_z.jpg", [[photo farm] integerValue], photo.server, photo.ID, photo.secret];
+            NSLog(@"***imageLink %@", photo.imageLink);
 //            [self performGETDetails:photo completion:^(BOOL success) {
 //                if (success) {
 //                    NSLog(@"***objectDetails %@ %@", [photo comment], [photo authorName]);
@@ -96,7 +94,6 @@
             NSLog(@"***objectAdded %@ %@", [photo title], [photo owner]);
         }
     }
-//    NSLog(@"!!!%@%@%@", resultsArray[0], resultsArray[1], resultsArray[2]);
     return resultsArray;
 }
 
