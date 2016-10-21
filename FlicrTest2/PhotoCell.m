@@ -7,6 +7,13 @@
 //
 
 #import "PhotoCell.h"
+#import "UIImageView+LoadImage.h"
+
+@interface PhotoCell () {
+    NSURLSessionDownloadTask *downloadPhotoTask;
+}
+
+@end
 
 @implementation PhotoCell
 
@@ -25,15 +32,21 @@
 }
 
 -(void) downloadImage:(NSString *)URL {
-    NSURL *url = [NSURL URLWithString: URL];
-    NSURLSessionDownloadTask *downloadPhotoTask = [[NSURLSession sharedSession]
-    downloadTaskWithURL:url completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.photoImage.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:location]];
-        });    
-    }];    
-    [downloadPhotoTask resume];
+    if (URL != nil) {
+        NSURL *url = [NSURL URLWithString:URL];
+        downloadPhotoTask = [self.photoImage loadImageWithURL:url];
+    }
 }
 
+-(void)prepareForReuse {
+    [super prepareForReuse];
+    if (downloadPhotoTask != nil) {
+        [downloadPhotoTask cancel];
+        downloadPhotoTask = nil;
+    }
+    self.titleLbl.text = nil;
+    self.descriptionLbl.text = nil;
+    self.authorNameLbl.text = nil;
+}
 
 @end

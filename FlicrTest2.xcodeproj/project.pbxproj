@@ -20,6 +20,7 @@
 		D00934B21DB6602500400011 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00934B11DB6602500400011 /* CoreGraphics.framework */; };
 		D00934B61DB67FE000400011 /* PhotosCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D00934B51DB67FE000400011 /* PhotosCollectionVC.m */; };
 		D00934BC1DB683DE00400011 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D00934BB1DB683DE00400011 /* PhotoCell.m */; };
+		D092ECFB1DBA125200CBC84C /* UIImageView+LoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D092ECFA1DBA125200CBC84C /* UIImageView+LoadImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		D00934B51DB67FE000400011 /* PhotosCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionVC.m; sourceTree = "<group>"; };
 		D00934BA1DB683DE00400011 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		D00934BB1DB683DE00400011 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		D092ECF91DBA125200CBC84C /* UIImageView+LoadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LoadImage.h"; sourceTree = "<group>"; };
+		D092ECFA1DBA125200CBC84C /* UIImageView+LoadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LoadImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 			children = (
 				D00934BA1DB683DE00400011 /* PhotoCell.h */,
 				D00934BB1DB683DE00400011 /* PhotoCell.m */,
+				D092ECF91DBA125200CBC84C /* UIImageView+LoadImage.h */,
+				D092ECFA1DBA125200CBC84C /* UIImageView+LoadImage.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				D00934B61DB67FE000400011 /* PhotosCollectionVC.m in Sources */,
 				D009349D1DB6581800400011 /* Photo.m in Sources */,
 				D00934BC1DB683DE00400011 /* PhotoCell.m in Sources */,
+				D092ECFB1DBA125200CBC84C /* UIImageView+LoadImage.m in Sources */,
 				D00934811DB6512000400011 /* AppDelegate.m in Sources */,
 				D00934AB1DB65ECA00400011 /* PhotosLibraryAPI.m in Sources */,
 				D009347E1DB6512000400011 /* main.m in Sources */,

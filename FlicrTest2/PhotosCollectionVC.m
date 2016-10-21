@@ -36,11 +36,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];    
     Photo *photo = testArray[indexPath.row];
     cell.photo = photo;
-    NSLog(@"********%@", photo.title);
+    NSLog(@"********%@", photo.authorName);
     return cell;
 }
 
