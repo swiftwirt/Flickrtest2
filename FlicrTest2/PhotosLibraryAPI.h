@@ -14,7 +14,7 @@
 +(PhotosLibraryAPI *) sharedInstance;
 
 
-@property NSMutableArray *photos;
+@property NSArray *photos;
 - (void)getPhotos:(void (^)(BOOL success))completionBlock ;
 
 @end

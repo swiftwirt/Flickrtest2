@@ -35,15 +35,15 @@
 }
 
 - (void)getPhotos:(void (^)(BOOL success))completionBlock {
-    [flickrClient performGET:^(BOOL success) {
-        if (success) {
-            self.photos = flickrClient.results;
-            NSLog(@"***items to display: %lu", (unsigned long)[self.photos count]);
-            completionBlock(success);
-        } else {
-            completionBlock(false);
-            NSLog(@"!!!***items to display: %lu", (unsigned long)[self.photos count]);
-        }
+    [flickrClient performGET:^(BOOL success, NSArray *results) {
+            if (success) {
+                self.photos = results;
+                NSLog(@"***items to display: %lu", (unsigned long)[self.photos count]);
+                completionBlock(success);
+            } else {
+                completionBlock(false);
+                NSLog(@"!!!***items to display: %lu", (unsigned long)[self.photos count]);
+            }
     }];
 }
 

@@ -12,7 +12,7 @@
 #import "LargeImagePopUpVC.h"
 
 @interface PhotosCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource> {
-    NSMutableArray *testArray;
+    NSArray *testArray;
 }
 
 @end
@@ -23,6 +23,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
     PhotosLibraryAPI *library = [PhotosLibraryAPI sharedInstance];
     [library getPhotos: ^(BOOL success) {
         if (success) {
