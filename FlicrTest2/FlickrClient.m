@@ -36,8 +36,10 @@
                     NSLog(@"***DATA LOADED items to display: %lu", (unsigned long)[results count]);
                 }];
             }
-                if (completionBlock != nil) completionBlock(true, results);
+            if (completionBlock != nil) completionBlock(true, results);
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
                 application.networkActivityIndicatorVisible = false;
+            });
         } else {
             NSLog(@"***dataTaskError occured: %@", [error description]);
             application.networkActivityIndicatorVisible = false;
