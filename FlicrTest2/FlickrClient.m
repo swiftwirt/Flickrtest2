@@ -67,10 +67,6 @@
             
             [self performGETDetails:photo completion:^(BOOL success, Photo *result) {
                 completion(result);
-                NSLog(@"AAARRRAAAYYY %@", result.owner);
-                NSLog(@"AAARRRAAAYYY %@", result.comment);
-                NSLog(@"AAARRRAAAYYY %@", result.title);
-                NSLog(@"A______________________________");
             }];     
         }
     }
@@ -106,6 +102,7 @@
         photo.farm = photoDetailDict[@"farm"];
         
         NSDictionary *ownerDict = [photoDetailDict objectForKey:@"owner"];
+        photo.authorName = ownerDict[@"username"];
         photo.owner = ownerDict[@"realname"];
         NSLog(@"&&&Success: %@", photo.owner);
 
@@ -117,10 +114,10 @@
         photo.comment = descriptionDict[@"_content"];
         NSLog(@"&&&Success: %@", photo.comment);
         
-        photo.imageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_m.jpg", [[photo farm] integerValue], photo.server, photo.ID, photo.secret];
+        photo.imageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_m.jpg", (long)[[photo farm] integerValue], photo.server, photo.ID, photo.secret];
         NSLog(@"***imageLink %@", photo.imageLink);
         
-        photo.bigImageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_z.jpg", [[photo farm] integerValue], photo.server, photo.ID, photo.secret];
+        photo.bigImageLink = [NSString stringWithFormat:@"https://farm%li.staticflickr.com/%@/%@_%@_z.jpg", (long)[[photo farm] integerValue], photo.server, photo.ID, photo.secret];
         NSLog(@"***imageLink %@", photo.imageLink);
     }
     return photo;
